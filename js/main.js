@@ -8,7 +8,7 @@ import {run, rotate, wave, battery_animation, enemy_animation} from "./animation
 
 import {create_level} from "./level.js";
 
-Physijs.scripts.worker = "/js/libs/physijs_worker.js";
+Physijs.scripts.worker = "physijs_worker.js";
 Physijs.scripts.ammo = "/js/libs/ammo.js";
 
 
