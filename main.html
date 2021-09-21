@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Funky Robot</title>
+		
+		<link rel="stylesheet" href="css/style.css">
+		
+		<script type="text/javascript" src="js/libs/three.js" ></script> 
+		<script type="text/javascript" src="js/libs/physi.js" ></script>
+		<script type="text/javascript" src="js/variables.js" ></script>
+		<script type="module" src="js/animations.js" ></script>
+		<script type="module" src="js/level.js" ></script>
+		
+	</head>
+	<body>
+	
+		<div class="container" id="loading">
+			<div class="load-text">
+				<p><font color="#009fde">LOADING</font></p>
+			</div>
+		</div>
+		<div class="canvas_three" id="game" style="display: none;"></div>
+		<script>
+		setTimeout(loadingFunction.bind(null), 3000);
+
+		function loadingFunction() {
+			document.getElementById("loading").style.display = "none";
+			document.getElementById("game").style.display = "initial";
+		}
+		
+    </script>
+		
+		<script type="module" src="js/main.js"></script>
+	
+		
+	</body>
+</html>
+
+
+<!-- 
+Labirinto in cui si è inseguiti dal nemico?
+ - Problema IA nemico
+	- Blocchi speciali che determinano se il giocatore è andato a destra o a sinistra
+		in modo da guidare il nemico. (o i nemici?)
+	- Invece di un labirinto potrei fare un percorso lineare
+	
+Platform game:
+- Jump complicata
+
+Sorta di labirinto a gara
+ - No jump necessario?
+ - Visuale dall'altro
+ - Problema poche animazioni?
+-->

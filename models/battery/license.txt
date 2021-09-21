@@ -1,0 +1,11 @@
+Model Information:
+* title:	3D Pixel Battery
+* source:	https://sketchfab.com/3d-models/3d-pixel-battery-f09cf5f373d44e51b5555e133106d7e0
+* author:	BlazingWildFire (https://sketchfab.com/BlazingWildFire)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "3D Pixel Battery" (https://sketchfab.com/3d-models/3d-pixel-battery-f09cf5f373d44e51b5555e133106d7e0) by BlazingWildFire (https://sketchfab.com/BlazingWildFire) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

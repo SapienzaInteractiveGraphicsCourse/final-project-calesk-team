@@ -1,0 +1,46 @@
+
+<!-- schermata iniziale: selezione modalità e difficoltà -->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+	
+		<meta charset="utf-8" />
+		<title>Funky Robot</title>
+		
+	</head>
+
+	<body> 
+		<div class="main">
+			
+			
+			<h4>
+				Select mode and press Play!
+			</h4>
+			<div class="buttons">
+			
+				<button id="singlePlayer" class "btn btn1" onClick="singlePlayer()">
+				<button id="multiPlayer" class "btn btn1" onClick="multiPlayer()">
+				
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript">
+			function singlePlayer(){
+				sessionStorage.setItem("singlePlayer", "true");
+				sessionStorage.setItem("multiPlayer", "false");
+				window.location.href = "./main.html";
+			}
+		</script>
+		
+		<script type="text/javascript">
+			function multiPlayer(){
+				sessionStorage.setItem("multiPlayer", "true");
+				sessionStorage.setItem("singlePlayer", "false");
+				window.location.href = "./main.html";
+			}
+		</script>
+	</body>
+</html>
