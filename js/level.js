@@ -186,10 +186,10 @@ function add_enemy(x, y, z){
     // `this` has collided with `other_object` with an impact speed of `relative_velocity` and a rotational force of `relative_rotation` and at normal `contact_normal`
 		if(other_object.name == 'robot'){
 			scene.remove(robot);
-			setTimeout(function(){
-				window.location.href = "./gameover.html";
+			console.log("GAMEOVER");
+			window.location.href = "./gameover.html";
 				
-			}, 2000);
+			
 		}
 			
 	});
