@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+	
+		<meta charset="utf-8" />
+		<title>Funky Robot</title>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@500&display=swap" rel="stylesheet"> 
+		
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body> 
+		<div class="main">
+			
+		<div class="time" id="time">
+
+		</div>	
+			<div class="playAgain">
+				<button id="playAgainButton" class="btn btn1" onClick="playAgain()">
+				<font color="#009fde">PLAY AGAIN!</font>
+				</button>
+			</div>
+			
+		</div>
+		
+		<script>
+			
+			document.getElementById("time").innerHTML += "<h4>" ;
+			document.getElementById("time").innerHTML += sessionStorage.getItem("tempo");
+			document.getElementById("time").innerHTML += "</h4>";
+			
+			if( sessionStorage.getItem("tempo") > 20 ){
+				document.getElementById("time").innerHTML += "<h4> Mhh it seems you still need to practice </h4>";
+			} else if( sessionStorage.getItem("tempo") < 19 ){
+				document.getElementById("time").innerHTML += "<h4> Wow this is a good time! </h4>";
+			}
+			
+		 </script>
+		
+		<script type="text/javascript">
+		
+		
+		
+			function playAgain(){
+				
+				window.location.href = "./index.html";
+				
+			}
+			
+		</script>
+		
+	</body>
+</html>

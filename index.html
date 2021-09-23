@@ -1,6 +1,4 @@
 
-<!-- schermata iniziale: selezione modalità e difficoltà -->
-
 <!DOCTYPE html>
 <html>
 
@@ -9,38 +7,88 @@
 		<meta charset="utf-8" />
 		<title>Funky Robot</title>
 		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@500&display=swap" rel="stylesheet"> 
+		
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 
 	<body> 
 		<div class="main">
+			<h1>
+				FUNKY ROBOT RUN!
+			</h1>
 			
+			<h2>
+				Select difficulty and press Play!
+			</h2>
 			
-			<h4>
-				Select mode and press Play!
-			</h4>
 			<div class="buttons">
 			
-				<button id="singlePlayer" class "btn btn1" onClick="singlePlayer()">
-				<button id="multiPlayer" class "btn btn1" onClick="multiPlayer()">
-				
+				<button id="easyButton" class="btn btn1" onClick="easy()">
+				<font color="#009fde">EASY</font>
+				<button id="expertButton" class="btn btn1" onClick="expert()">
+				<font color="#009fde">EXPERT</font>
 			</div>
+			<br /><br/>
+			<div class="paly">
+				<button id="playButton" class="btn btn1" onClick="play()" disabled="true">
+				<font color="#009fde">PLAY!</font>
+				</button>
+			</div>
+		  	  
+		<div class="instructions">
+			<h4>
+				The goal of the game is to reash the finish line in the minor time possible.
+			</h4>
+			<h4>
+				To move the palyer use the directional arrows or WASD.
+			</h4>
+			<h4>
+				Collect batteries to gain a speed bonus for few seconds.
+			</h4>
+			<h4>
+				Be aware! Don't touch the enemy robots!
+			</h4>
+		</div>
 			
 		</div>
 		
 		<script type="text/javascript">
-			function singlePlayer(){
-				sessionStorage.setItem("singlePlayer", "true");
-				sessionStorage.setItem("multiPlayer", "false");
-				window.location.href = "./main.html";
+		
+			function easy(){
+			
+				sessionStorage.setItem("easy", "true");
+				sessionStorage.setItem("expert", "false");
+				easyButton.disabled = true;
+				expertButton.disabled = false;
+				playButton.disabled = false;
+				
 			}
+			
 		</script>
 		
 		<script type="text/javascript">
-			function multiPlayer(){
-				sessionStorage.setItem("multiPlayer", "true");
-				sessionStorage.setItem("singlePlayer", "false");
+		
+			function expert(){
+			
+				sessionStorage.setItem("expert", "true");
+				sessionStorage.setItem("easy", "false");
+				easyButton.disabled = false;
+				expertButton.disabled = true;
+				playButton.disabled = false;
+				
+			}
+			
+		</script>
+		
+		<script type="text/javascript">
+		
+			function play(){
 				window.location.href = "./main.html";
 			}
+			
 		</script>
 	</body>
 </html>
