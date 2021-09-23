@@ -22,7 +22,7 @@ export function create_level(){
 	
 	add_finish_block(13, 1.5, -13);
 	
-	add_enemys(-12, 0, 10);
+	add_enemys();
 	
 }		
 
@@ -169,8 +169,8 @@ function add_enemy(x, y, z){
 	initialize_enemy();
 	
 	var enemy_material = Physijs.createMaterial(
-		//new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.0 }));
-		new THREE.MeshBasicMaterial({ wireframe: true, opacity: 1 }));
+		new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.0 }));
+		//new THREE.MeshBasicMaterial({ wireframe: true, opacity: 1 }));
 		
 	var enemy_box = new Physijs.BoxMesh(
 		new THREE.CubeGeometry( 1, 1, 1 ),  
@@ -187,7 +187,7 @@ function add_enemy(x, y, z){
 		if(other_object.name == 'robot'){
 			scene.remove(robot);
 			setTimeout(function(){
-				window.location.href = "./index.html";
+				window.location.href = "./gameover.html";
 				
 			}, 2000);
 		}
@@ -211,23 +211,28 @@ function add_enemy(x, y, z){
 
 function add_enemys(){
 	
-	//quantità in base alla difficoltà?
+	//quantità in base alla difficoltà
 	
-	add_enemy(-13, 0, 10);
+	if(expert){
+		
+		add_enemy(-13, 0, 10);
+		add_enemy(-6, 0, -2);
+		add_enemy(-3, 0, -13);
+		add_enemy(6, 0, -11);
+		add_enemy(7, 0, -6);
+		add_enemy(7, 0, 4);
+		add_enemy(13, 0, 10);
+		
+	}else{
+		
+		add_enemy(-13, 0, 10);
+		add_enemy(-3, 0, -13);
+		add_enemy(7, 0, -6);
+		add_enemy(13, 0, 10);
+		
+	}
 	
-	add_enemy(-6, 0, -2);
 	
-	add_enemy(-3, 0, -13);
-	
-	add_enemy(6, 0, -11);
-	
-	add_enemy(7, 0, -6);
-	
-	add_enemy(7, 0, 4);
-	
-	add_enemy(13, 0, 10);
-	
-	//add_enemy(13, 0, 6);
 	
 }
 
@@ -251,7 +256,7 @@ function add_battery(x, y, z){
 	);
 	
 	var battery_box = new Physijs.BoxMesh(
-		new THREE.CubeGeometry( 0.3, 0.5, 0.3 ),  
+		new THREE.CubeGeometry( 0.5, 0.5, 0.5 ),  
 		battery_material,
 		0 //mass = 0 means static object
 	);

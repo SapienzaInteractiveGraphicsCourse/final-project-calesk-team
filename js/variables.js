@@ -3,17 +3,19 @@ var delta;
 
 var container;
 
-/*var difficulty;
+var expert = false;
 
-if(sessionStorage.getItem("difficulty") == "easy") {
-	difficulty = easy;
+if(sessionStorage.getItem("expert") == "true") {
+	expert = true;
+}else if(sessionStorage.getItem("easy") == "true"){
+	expert = false;
 }
-*/
+
 
 const data = new Date();
 var inizio;
 var fine;
-var tempo;
+var tempo = 0;
 
 var orbitControls = false;
 

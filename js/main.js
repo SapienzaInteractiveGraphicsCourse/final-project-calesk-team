@@ -129,7 +129,7 @@ function load_robot() {
       gltfLoader.load("models/robot/source/model.gltf", (gltf) => {
         robot = gltf.scene;
         robot.name = "robot";
-        robot.position.set(0.05, 0.5, 0);   // so the box is alligne with the mesh on the x side
+        robot.position.set(0, 0.5, 0);
 		
 
         robot.traverse(function (child) {
@@ -288,7 +288,7 @@ function set_model_physics(){
 		new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.0 })
 	);
 	robot_box = new Physijs.BoxMesh(
-		new THREE.CubeGeometry( 0.6, 0.5, 0.6 ),  
+		new THREE.CubeGeometry( 0.7, 0.5, 0.7 ),  
 		robot_material,
 		20
 	);
@@ -333,9 +333,10 @@ function set_model_physics(){
 			controls.enableDamping = true;
 			
 			setTimeout(function(){
-				window.location.href = "./index.html";
+				sessionStorage.setItem("tempo", tempo);
+				window.location.href = "./finish.html";
 				
-			}, 10000);
+			}, 2000);
 	
 		}
 		

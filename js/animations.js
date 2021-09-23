@@ -1,10 +1,5 @@
 import TWEEN from "./libs/tween.esm.js";
 
-
-//var step = 0.1; //si può fare
-//var step = 0.2; //troppo veloce: strane collisioni 
-
-
 var r_finale = 0;
 var r = (0 * Math.PI) / 180;
 var r_new;
@@ -194,8 +189,6 @@ export function run(){
 					.to(stop, time)
 					.easing(TWEEN.Easing.Linear.None)
 					.onUpdate(function () {
-				
-						//rotation.rotation.z = start.rot,
 						
 						antenna.rotation.z = start.ant;
 						
