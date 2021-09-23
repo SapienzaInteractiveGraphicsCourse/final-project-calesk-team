@@ -4,24 +4,19 @@
 		<meta charset="utf-8">
 		<title>Funky Robot</title>
 		
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/main.css">
 		
 		
 		
 	</head>
 	<body>
 	
-		<div class="container" id="loading">
-			<div class="load-text">
-				<p><font color="#009fde">LOADING</font></p>
-			</div>
-		</div>
+		
 		<div class="canvas_three" id="game" style="display: none;"></div>
 		<script>
 		setTimeout(loadingFunction.bind(null), 3000);
 
 		function loadingFunction() {
-			document.getElementById("loading").style.display = "none";
 			document.getElementById("game").style.display = "initial";
 		}
 		
