@@ -312,11 +312,6 @@ function set_model_physics(){
 		
 		
 		if(other_object.name == 'finish'){
-			//blocco tutte animazioni
-			//blocco tastiera
-			//animazione arrivo .start
-			//time = ...
-			//carica pagina fine gioco
 			
 			fine = new Date().getTime();
 			tempo = (fine - inizio)/1000;
@@ -336,7 +331,7 @@ function set_model_physics(){
 				sessionStorage.setItem("tempo", tempo);
 				window.location.href = "./finish.html";
 				
-			}, 2000);
+			}, 5000);
 	
 		}
 		

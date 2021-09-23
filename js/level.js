@@ -185,10 +185,9 @@ function add_enemy(x, y, z){
 	enemy_box.addEventListener( 'collision', function( other_object, relative_velocity, relative_rotation, contact_normal ) {
     // `this` has collided with `other_object` with an impact speed of `relative_velocity` and a rotational force of `relative_rotation` and at normal `contact_normal`
 		if(other_object.name == 'robot'){
+			
 			scene.remove(robot);
-			console.log("GAMEOVER");
-			window.location.href = "./gameover.html";
-				
+			window.location.href = "./gameover.html";	
 			
 		}
 			

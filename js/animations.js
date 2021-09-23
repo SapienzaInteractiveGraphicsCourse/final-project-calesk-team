@@ -417,16 +417,31 @@ export function enemy_animation(){
 
 export function wave(){
 	var start = {
+		ant : (20 * Math.PI) / 180,
+		rot : rotation.rotation.z,
 		z: (0 * Math.PI) / 180,
 	};
 	var end= {
-		z: (45 * Math.PI) / 180,
+		ant : -(20 * Math.PI) / 180,
+		rot : rotation.rotation.z + (90 * Math.PI) / 180,
+		z: (55 * Math.PI) / 180,
 	};
 	var tween = new TWEEN.Tween(start)
 				.to(end, time)
 				.easing(TWEEN.Easing.Linear.None)
 				.onUpdate(function () {
+					robot.rotation.y = (270 * Math.PI) / 180;
+					
+					rotation.rotation.z += (5 * Math.PI) / 180;
+					antenna.rotation.z = start.ant;
+					lowerArmR.rotation.z = (15 * Math.PI) / 180;
+					lowerArmL.rotation.z = -(15 * Math.PI) / 180;
 					upperArmR.rotation.z = start.z;
+					upperArmL.rotation.z = - start.z;
+					
+					handR.rotation.x = (130 * Math.PI) / 180;
+					handL.rotation.x = (130 * Math.PI) / 180;
+					
 				})
 				.yoyo(true)
 				.repeat(Infinity)
