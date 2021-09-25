@@ -33,9 +33,9 @@
 			
 			document.getElementById("time").innerHTML += "<h2>" + sessionStorage.getItem("tempo") + "</h2>";
 			
-			if( sessionStorage.getItem("tempo") > 20 ){
+			if( sessionStorage.getItem("tempo") > 17 ){
 				document.getElementById("time").innerHTML += "<h4> Mhh it seems you still need to practice </h4>";
-			} else if( sessionStorage.getItem("tempo") < 19 ){
+			} else if( sessionStorage.getItem("tempo") <= 17 ){
 				document.getElementById("time").innerHTML += "<h4> Wow this is a good time! </h4>";
 			}
 			
