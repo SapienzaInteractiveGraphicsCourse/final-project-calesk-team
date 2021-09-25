@@ -22,7 +22,7 @@
 		</div>	
 			<div class="playAgain">
 				<button id="playAgainButton" class="btn btn1" onClick="playAgain()">
-				<font color="#009fde">PLAY AGAIN!</font>
+				<font color="#0079bf">PLAY AGAIN!</font>
 				</button>
 			</div>
 			
@@ -30,9 +30,7 @@
 		
 		<script>
 			
-			document.getElementById("time").innerHTML += "<h4>" ;
-			document.getElementById("time").innerHTML += sessionStorage.getItem("tempo");
-			document.getElementById("time").innerHTML += "</h4>";
+			document.getElementById("time").innerHTML += "<h2>" + sessionStorage.getItem("tempo") + "</h2>";
 			
 			if( sessionStorage.getItem("tempo") > 20 ){
 				document.getElementById("time").innerHTML += "<h4> Mhh it seems you still need to practice </h4>";
