@@ -7,18 +7,18 @@ export function create_level(){
 	create_limit();
 	add_walls();
 	
-	
 	add_battery( -14, 0, 13);
 	add_battery( -5, 0, 7);
 	add_battery( 1, 0, 13);
 	add_battery( 6, 0, 17);
 	add_battery( 11, 0, 13);
 	add_battery( 13, 0, 0);
-	
 	add_battery( -3, 0, -3);
 	add_battery( -5, 0, -13);
-	//add_tree(-29.5, 1, 29.5);
-	//add_battery( -3, 3, 0);
+	
+	add_tree(14.5, 1, 14.5);
+	add_tree(0, 1, 0);
+	add_tree(7.5, 1, -15.5);
 	
 	add_finish_block(13, 1.5, -13);
 	
@@ -52,31 +52,67 @@ function create_ground(){
 	var lateral_ground_texture = textureLoader.load(ground_texture_url);
 	lateral_ground_texture.wrapS = THREE.RepeatWrapping;
 	lateral_ground_texture.wrapT = THREE.RepeatWrapping;
-	lateral_ground_texture.repeat.set( 12, 1 );
+	lateral_ground_texture.repeat.set( 4, 1 );
 	
 	var underground_texture = textureLoader.load(underground_texture_url);
 	underground_texture.wrapS = THREE.RepeatWrapping;
 	underground_texture.wrapT = THREE.RepeatWrapping;
-	underground_texture.repeat.set( 36, 36);
+	underground_texture.repeat.set( 36, 14);
 	
 	var grass_texture = textureLoader.load(grass_texture_url);
 	grass_texture.wrapS = THREE.RepeatWrapping;
 	grass_texture.wrapT = THREE.RepeatWrapping;
-	grass_texture.repeat.set( 36, 36);
+	grass_texture.repeat.set( 36, 14);
+	
+	//Ground 2
+	var ground_texture2 = textureLoader.load(ground_texture_url);
+	ground_texture2.wrapS = THREE.RepeatWrapping;
+	ground_texture2.wrapT = THREE.RepeatWrapping;
+	ground_texture2.repeat.set( 9, 1 );
+	
+	var lateral_ground_texture2 = textureLoader.load(ground_texture_url);
+	lateral_ground_texture2.wrapS = THREE.RepeatWrapping;
+	lateral_ground_texture2.wrapT = THREE.RepeatWrapping;
+	lateral_ground_texture2.repeat.set( 7, 1 );
+	
+	var underground_texture2 = textureLoader.load(underground_texture_url);
+	underground_texture2.wrapS = THREE.RepeatWrapping;
+	underground_texture2.wrapT = THREE.RepeatWrapping;
+	underground_texture2.repeat.set( 27, 22);
+	
+	var grass_texture2 = textureLoader.load(grass_texture_url);
+	grass_texture2.wrapS = THREE.RepeatWrapping;
+	grass_texture2.wrapT = THREE.RepeatWrapping;
+	grass_texture2.repeat.set( 27, 22);
 	
 	ground_material = [
 		new THREE.MeshPhongMaterial({map: lateral_ground_texture,
-      color: 0xd2b48c,}),
+      color: 0x989898,}),
 		new THREE.MeshPhongMaterial({map: lateral_ground_texture,
-      color: 0xd2b48c,}),
+      color: 0x989898,}),
 		new THREE.MeshPhongMaterial({map: grass_texture,
-      color: 0xd2b48c,}),
+      color: 0x989898,}),
 		new THREE.MeshPhongMaterial({map: underground_texture,
-      color: 0xd2b48c,}),
+      color: 0x989898,}),
 		new THREE.MeshPhongMaterial({map: ground_texture,
-      color: 0xd2b48c,}),
+      color: 0x989898,}),
 		new THREE.MeshPhongMaterial({map: ground_texture,
-      color: 0xd2b48c,}),
+      color: 0x989898,}),
+		];
+		
+	ground_material2 = [
+		new THREE.MeshPhongMaterial({map: lateral_ground_texture2,
+      color: 0x989898,}),
+		new THREE.MeshPhongMaterial({map: lateral_ground_texture2,
+      color: 0x989898,}),
+		new THREE.MeshPhongMaterial({map: grass_texture2,
+      color: 0x989898,}),
+		new THREE.MeshPhongMaterial({map: underground_texture2,
+      color: 0x989898,}),
+		new THREE.MeshPhongMaterial({map: ground_texture2,
+      color: 0x989898,}),
+		new THREE.MeshPhongMaterial({map: ground_texture2,
+      color: 0x989898,}),
 		];
 		
 	ground1 = new Physijs.BoxMesh(new THREE.BoxGeometry(36, 3, 14),ground_material,0);
@@ -87,7 +123,7 @@ function create_ground(){
 	
 	scene.add( ground1 );
 	
-	ground2 = new Physijs.BoxMesh(new THREE.BoxGeometry(27, 3, 22),ground_material,0);
+	ground2 = new Physijs.BoxMesh(new THREE.BoxGeometry(27, 3, 22),ground_material2,0);
 	ground2.receiveShadow = true;
 	ground2.position.set( 4.5, -2, -7 );
 	ground2.name = 'ground';
@@ -109,13 +145,13 @@ function add_walls(){
 	add_block( -9, 0.5, 13 );
 	add_block( -9, 0.5, 11 );
 	
-	// left wall 
+	//left wall 
 	add_wall(-17, 0.5, 11, 2, 2, 14);   // p_y = d_y / 2 - 0.5
 	
 	//up wall
 	add_wall(5, 0.5, -17, 26, 2, 2);
 	
-	// wall 1
+	//wall 1
 	add_wall( -2, 0.5, 13, 2, 2, 10); // p_x p_y p_z d_x d_y d_z
 	
 	//block 1
@@ -141,11 +177,6 @@ function add_walls(){
 	//right wall
 	add_wall(17, 0.5, 0, 2, 2, 36);
 	
-	/*//L block 3
-	add_block( -7, 0.5, -17 );
-	add_block( -7, 0.5, -15 );
-	add_block( -5, 0.5, -17 );
-	*/
 	//wall 2
 	add_wall( 13, 0.5, -4, 6, 2, 2);
 	
@@ -197,7 +228,6 @@ function add_enemy(x, y, z){
 	enemy_box.__dirtyPosition = true;
 	enemy_box.__dirtyRotation = true;
 	
-	
 	var enemy_new = enemy.clone();
 	
 	enemy_box.add(enemy_new);
@@ -210,7 +240,7 @@ function add_enemy(x, y, z){
 
 function add_enemys(){
 	
-	//quantità in base alla difficoltà
+	//quantity based on difficulty
 	
 	if(expert){
 		
@@ -231,18 +261,13 @@ function add_enemys(){
 		
 	}
 	
-	
-	
 }
-
 
 function initialize_battery(){
 
 	battery.position.set(0.2,-0.25,0.2);
 	battery.scale.set(1.4, 1.7, 1.4);
 	
-	
-		
 }
 	
 function add_battery(x, y, z){
@@ -304,17 +329,17 @@ function add_wall( p_x, p_y, p_z, d_x, d_y, d_z){
 	
 	var box_material = [
 		new THREE.MeshPhongMaterial({map: lateral_texture,
-      color: 0x808080,}),
+      color: 0x989898,}),
 		new THREE.MeshPhongMaterial({map: lateral_texture,
-      color: 0x808080,}),
+      color: 0x989898,}),
 		new THREE.MeshPhongMaterial({map: texture,
-      color: 0x808080,}),
+      color: 0x989898,}),
 		new THREE.MeshPhongMaterial({map: texture,
-      color: 0x808080,}),
+      color: 0x989898,}),
 		new THREE.MeshPhongMaterial({map: front_texture,
-      color: 0x808080,}),
+      color: 0x989898,}),
 		new THREE.MeshPhongMaterial({map: front_texture,
-      color: 0x808080,}),
+      color: 0x989898,}),
 		];
 	
 	var box = new Physijs.BoxMesh(
@@ -340,7 +365,7 @@ function add_block( x, y, z ){
 	
 	var box_material = Physijs.createMaterial(
 		new THREE.MeshPhongMaterial({map: texture,
-      color: 0x808080,}),
+      color: 0x989898,}),
 		//new THREE.MeshBasicMaterial({ wireframe: true, opacity: 1 })
 	);
 	var box = new Physijs.BoxMesh(
@@ -364,7 +389,7 @@ function add_finish_block(x, y, z){
 	
 	var finish_material = Physijs.createMaterial(
 		new THREE.MeshPhongMaterial({map: texture,
-      color: 0x808080,}),
+      color: 0x989898,}),
 	);
 	var finish = new Physijs.BoxMesh(
 		new THREE.PlaneGeometry( 4, 1 ), 
@@ -397,9 +422,8 @@ function add_finish_block(x, y, z){
 
 function add_tree(x, y, z){
 	var leafe_texture = textureLoader.load("textures/leafe.png");
-	leafe_texture.wrapS = THREE.RepeatWrapping;
-	leafe_texture.wrapT = THREE.RepeatWrapping;
-	leafe_texture.repeat.set( 3, 3 );
+	
+	var leafe_bump_texture = textureLoader.load("textures/texture-bump.jpg");
 	
 	var wood_texture = textureLoader.load("textures/wood.png");
 	wood_texture.wrapS = THREE.RepeatWrapping;
@@ -407,8 +431,8 @@ function add_tree(x, y, z){
 	wood_texture.repeat.set( 1, 3 );
 	
 	var leafe_box_material = Physijs.createMaterial(
-		new THREE.MeshPhongMaterial({map: leafe_texture,
-      color: 0x808080,}),
+		new THREE.MeshPhongMaterial({map: leafe_texture, bumpMap: leafe_bump_texture,
+		color: 0x989898, bumpScale: 1.5}),
 		//new THREE.MeshBasicMaterial({ wireframe: true, opacity: 1 })
 	);
 	var leafe_box = new Physijs.BoxMesh(
@@ -425,7 +449,7 @@ function add_tree(x, y, z){
 	
 	var wood_box_material = Physijs.createMaterial(
 		new THREE.MeshPhongMaterial({map: wood_texture,
-      color: 0x808080,}),
+      color: 0x989898,}),
 		//new THREE.MeshBasicMaterial({ wireframe: true, opacity: 1 })
 	);
 	var wood_box = new Physijs.BoxMesh(

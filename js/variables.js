@@ -27,6 +27,7 @@ var loadManager;
 var textureLoader;
 
 var ground_material;
+var ground_material2;
 var ground1;
 var ground2;
 

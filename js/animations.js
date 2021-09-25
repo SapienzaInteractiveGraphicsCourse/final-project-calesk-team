@@ -231,8 +231,6 @@ export function rotate(){
 	
 	r += (diff * Math.PI) / 180;
 	
-	//r = (r * Math.PI) / 180;
-	
 
 	var start = {
 		

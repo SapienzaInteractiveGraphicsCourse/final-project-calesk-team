@@ -45,10 +45,6 @@ function init() {
     false
   );
 	
-	
-	
-	
-	
 	container.appendChild(renderer.domElement);
 
 	scene = new Physijs.Scene({fixedTimeStep: 1/100});
@@ -74,12 +70,11 @@ function init() {
 	dirLight.shadow.mapSize.width = 2048;
 	dirLight.shadow.mapSize.height = 2048;
 
-	const d = 50;
 
-	dirLight.shadow.camera.left = - d;
-	dirLight.shadow.camera.right = d;
-	dirLight.shadow.camera.top = d;
-	dirLight.shadow.camera.bottom = - d;
+	dirLight.shadow.camera.left = -50;
+	dirLight.shadow.camera.right = 50;
+	dirLight.shadow.camera.top = 50;
+	dirLight.shadow.camera.bottom = - 50;
 
 	dirLight.shadow.camera.far = 3500;
 	dirLight.shadow.bias = - 0.0001;
@@ -110,7 +105,6 @@ function init() {
 function load_characters() {
 	
 	load_robot();
-	//if(sessionStorage.getItem("multiplayer") == "true") {
 	load_enemy();
 	load_battery();
 	//load_radio();
@@ -200,6 +194,7 @@ function load_battery(){
 
 }
 
+//not used
 function load_radio(){
 	radio = new THREE.Scene();
     {
@@ -269,7 +264,7 @@ function initialize_robot(){
 	set_model_physics();
 }
 
-
+//not used
 function initialize_radio(){
 	
 	radio.position.set(-2, 0.3, 0);
@@ -297,19 +292,12 @@ function set_model_physics(){
 		robot_material,
 		20
 	);
-	/*box_container.position.set(
-		robot.position.x,
-		robot.position.y,
-		robot.position.z,
-	);*/
 	
 	robot_box.setCcdMotionThreshold(1);
 	upper_robot_box.setCcdMotionThreshold(1);
 	
 	robot_box.addEventListener( 'collision', function( other_object, relative_velocity, relative_rotation, contact_normal ) {
     // `this` has collided with `other_object` with an impact speed of `relative_velocity` and a rotational force of `relative_rotation` and at normal `contact_normal`
-		
-		
 		
 		if(other_object.name == 'finish'){
 			
@@ -319,10 +307,10 @@ function set_model_physics(){
 			inputDisabled = true;
 			tween_run_middle.stop();
 			wave();
+			
 			//camera orbitale
 			orbitControls = true;
 			controls = new OrbitControls( camera, renderer.domElement );
-			//controls.target.set( 0, 0.5, 0 );
 			controls.update();
 			controls.enablePan = false;
 			controls.enableDamping = true;
@@ -352,7 +340,6 @@ function set_model_physics(){
 		
 		if(other_object.name == 'battery'){
 			
-			//console.log("COLLISIONE con batteria");
 			if(step > 0) step += 0.05;
 			else step -= 0.05;
 			
@@ -387,8 +374,6 @@ function set_model_physics(){
 	
 	scene.add(robot_box);
 	
-	
-	
 }
 
 
@@ -402,10 +387,7 @@ function input_controls(){
 			case 37: // left arrow
 			
 			if (!left){
-				//console.log("Left pressed");
-				//robot.rotation.y = (180 * Math.PI) / 180;
 				if(running){
-					//console.log("Left keyup stop");
 					tween_run_middle.stop();
 					tween_stop.start();
 				}
@@ -423,10 +405,9 @@ function input_controls(){
 			
 			case 38: // up arrow			
 			if (!up) {
-				//console.log("Up pressed");
-				//robot.rotation.y = (90 * Math.PI) / 180;
+				
 				if(running){
-					//console.log("Up keyup stop");
+					
 					tween_run_middle.stop();
 					tween_stop.start();
 				}
@@ -444,10 +425,9 @@ function input_controls(){
 			case 39: // right arrow
 			
 			if(!right){
-				//console.log("Right pressed");
-				//robot.rotation.y = (0 * Math.PI) / 180;
+				
 				if(running){
-					//console.log("Right keyup stop");
+					
 					tween_run_middle.stop();
 					tween_stop.start();
 				}
@@ -465,10 +445,9 @@ function input_controls(){
 			case 40: // down arrow
 			 
 			if (!down){
-				//console.log("Down pressed");
-				//robot.rotation.y = -(90 * Math.PI) / 180;
+				
 				if(running){
-					//console.log("Down keyup stop");
+					
 					tween_run_middle.stop();
 					tween_stop.start();
 				}
@@ -485,10 +464,9 @@ function input_controls(){
 		
 			case 65: // a left			
 			if (!left){
-				//console.log("Left pressed");
-				//robot.rotation.y = (180 * Math.PI) / 180;
+				
 				if(running){
-					//console.log("Left keyup stop");
+					
 					tween_run_middle.stop();
 					tween_stop.start();
 				}
@@ -505,10 +483,9 @@ function input_controls(){
 			
 			case 87: // w up
 			if (!up) {
-				//console.log("Up pressed");
-				//robot.rotation.y = (90 * Math.PI) / 180;
+				
 				if(running){
-					//console.log("Up keyup stop");
+					
 					tween_run_middle.stop();
 					tween_stop.start();
 				}
@@ -525,10 +502,9 @@ function input_controls(){
 			
 			case 68: // d right
 			if(!right){
-				//console.log("Right pressed");
-				//robot.rotation.y = (0 * Math.PI) / 180;
+				
 				if(running){
-					//console.log("Right keyup stop");
+					
 					tween_run_middle.stop();
 					tween_stop.start();
 				}
@@ -545,10 +521,9 @@ function input_controls(){
 
 			case 83: // s down
 			if (!down){
-				//console.log("Down pressed");
-				//robot.rotation.y = -(90 * Math.PI) / 180;
+				
 				if(running){
-					////console.log("Down keyup stop");
+					
 					down = false;
 					running = false;
 					tween_run_middle.stop();
@@ -575,7 +550,7 @@ function input_controls(){
 			
 			case 37: //left arrow
 			if(left){
-				//console.log("Left stop");
+				
 				tween_run_middle.stop();
 				tween_stop.start();
 				left = false;
@@ -586,7 +561,7 @@ function input_controls(){
 			
 			case 38: // up arrow
 			if(up){
-				//console.log("Up stop");
+				
 				tween_run_middle.stop();
 				tween_stop.start();
 				up = false;
@@ -597,7 +572,7 @@ function input_controls(){
 			
 			case 39: //right arrow
 			if(right){
-				//console.log("Right stop");
+				
 				tween_run_middle.stop();
 				tween_stop.start();
 				running = false;
@@ -609,7 +584,7 @@ function input_controls(){
 			
 			case 40: // down arrow			
 			if(down){
-				//console.log("Down stop");
+				
 				tween_run_middle.stop();
 				tween_stop.start();
 				running = false;
@@ -621,7 +596,7 @@ function input_controls(){
 		
 			case 65: // a left
 			if(left){
-				//console.log("Left stop");
+				
 				tween_run_middle.stop();
 				tween_stop.start();
 				left = false;
@@ -632,7 +607,7 @@ function input_controls(){
 			
 			case 87: // w up
 			if(up){
-				//console.log("Up stop");
+				
 				tween_run_middle.stop();
 				tween_stop.start();
 				up = false;
@@ -643,7 +618,7 @@ function input_controls(){
 			
 			case 68: // d right
 			if(right){
-				//console.log("Right stop");
+				
 				tween_run_middle.stop();
 				tween_stop.start();
 				right = false;
@@ -654,7 +629,7 @@ function input_controls(){
 
 			case 83: // s down
 			if(down){
-				//console.log("Down stop");
+				
 				tween_run_middle.stop();
 				tween_stop.start();
 				down = false;
