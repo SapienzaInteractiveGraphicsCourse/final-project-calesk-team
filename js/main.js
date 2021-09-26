@@ -303,7 +303,7 @@ function set_model_physics(){
 			
 			fine = new Date().getTime();
 			tempo = (fine - inizio)/1000;
-			console.log("TEMPO:", tempo);
+			//console.log("TEMPO:", tempo);
 			inputDisabled = true;
 			tween_run_middle.stop();
 			wave();
