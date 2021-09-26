@@ -1,10 +1,10 @@
 import TWEEN from "./libs/tween.esm.js";
 
-var r_finale = 0;
-var r = (0 * Math.PI) / 180;
-var r_new;
-var n_angoli = 0;
-var diff = 0;
+var r_finale = 0; // old angle
+var r = (0 * Math.PI) / 180; // final angle
+var r_new; // the new angle based on the new direction.
+//var n_angoli = 0; // not used
+var diff = 0; //used to calculate the difference between the new angle and the old one
 
 
 export function run(){
@@ -225,8 +225,8 @@ export function rotate(){
 	
 	diff = ( r_new - r_finale );
 	
-	if (diff > 180) diff = -90;
-	if (diff < -180) diff = 90;
+	if (diff > 180) diff = -90; // correct the angle if the difference is to big
+	if (diff < -180) diff = 90; // correct the angle if the difference is to low
 		
 	
 	r += (diff * Math.PI) / 180;
@@ -252,7 +252,7 @@ export function rotate(){
 						.easing(TWEEN.Easing.Linear.None)
 						.onUpdate(function () {
 							robot.rotation.y = start.r;
-							if(robot_box.rotation.y != (0 * Math.PI) / 180){
+							if(robot_box.rotation.y != (0 * Math.PI) / 180){ // this prevents the robot_box to rotate, or to re-establish the right rotation in case of strange collision effects
 								robot_box.rotation.y = (0 * Math.PI) / 180;
 							}
 							
